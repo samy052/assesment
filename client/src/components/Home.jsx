@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import './Home.css';
 
 const Home = () => {
-  const [users, setUsers] = useState([]); // State to hold user data
-  const [loading, setLoading] = useState(true); // State to manage loading status
-  const [error, setError] = useState(null); // State to manage errors
-  const [editUserId, setEditUserId] = useState(null); // State to track which user is being edited
-  const [formData, setFormData] = useState({ username: '', email: '' }); // State for form data
+  const [users, setUsers] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null); 
+  const [editUserId, setEditUserId] = useState(null); 
+  const [formData, setFormData] = useState({ username: '', email: '' }); 
 
   // Fetch users when the component mounts
   useEffect(() => {
@@ -17,23 +17,23 @@ const Home = () => {
           throw new Error('Failed to fetch users');
         }
         const data = await response.json();
-        setUsers(data); // Set the fetched user data
+        setUsers(data); 
       } catch (err) {
-        setError(err.message); // Set error message
+        setError(err.message); 
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false); 
       }
     };
 
-    fetchUsers(); // Call the fetch function
+    fetchUsers(); 
   }, []);
 
-  // Display loading state
+  e
   if (loading) {
     return <p>Loading users...</p>;
   }
 
-  // Display error state
+ 
   if (error) {
     return <p>Error: {error}</p>;
   }
@@ -41,7 +41,7 @@ const Home = () => {
   // Function to handle user deletion
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm('Are you sure you want to delete this user?');
-    if (!confirmDelete) return; // User canceled the delete action
+    if (!confirmDelete) return; 
 
     try {
       const response = await fetch(`/api/users/${id}`, {
@@ -52,27 +52,27 @@ const Home = () => {
         throw new Error('Failed to delete user');
       }
 
-      // Remove the deleted user from the state
+     
       setUsers(users.filter(user => user._id !== id));
       alert('User deleted successfully');
     } catch (error) {
-      setError(error.message); // Handle the error
+      setError(error.message); 
       alert('Error deleting user: ' + error.message);
     }
   };
 
-  // Function to handle user update
+  
   const handleEdit = (user) => {
     setEditUserId(user._id);
-    setFormData({ username: user.username, email: user.email }); // Populate form with user data
+    setFormData({ username: user.username, email: user.email }); 
   };
 
-  // Function to handle form changes
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Function to handle form submission for updating user
+  
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -90,11 +90,11 @@ const Home = () => {
 
       const updatedUser = await response.json();
       setUsers(users.map(user => (user._id === updatedUser._id ? updatedUser : user))); // Update user in state
-      setEditUserId(null); // Reset edit user ID
-      setFormData({ username: '', email: '' }); // Clear form
+      setEditUserId(null); 
+      setFormData({ username: '', email: '' }); 
       alert('User updated successfully');
     } catch (error) {
-      setError(error.message); // Handle the error
+      setError(error.message); 
       alert('Error updating user: ' + error.message);
     }
   };
