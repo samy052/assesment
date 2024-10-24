@@ -1,0 +1,76 @@
+.login-overlay {
+    z-index: 10;
+    height: 100vh;
+    width: 100vw;
+    top: 0%;
+    right: 0%;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.login-container {
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.login-container h2 {
+    font-size: 30px;
+    color: #98E4FF;
+    text-align: left;
+}
+
+.login-container form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.login-container input {
+    padding: 6px;
+    margin: 1px 0;
+    border: 1px solid #fff;
+    color: #fff;
+    background: none;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.login-container input:focus {
+    outline: none;
+}
+
+.login-button {
+    margin-top: 1rem;
+    color: #98E4FF;
+    cursor: pointer;
+}
+
+.to-second-page {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: start;
+    font-size: 0.85rem;
+    color: #fff;
+}
+
+.second-page-link a {
+    margin-left: 0.3rem;
+    color: #98E4FF;
+    transition: 0.3s;
+}
+
+.second-page-link a:hover {
+    text-decoration: underline;
+    color: #fff;
+    cursor: pointer;
+}

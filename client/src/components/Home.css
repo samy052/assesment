@@ -1,0 +1,13 @@
+.home h1,li{
+    color: aliceblue;
+}
+.home button{
+    background-color: antiquewhite;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
