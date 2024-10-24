@@ -6,7 +6,7 @@ import "./Login.css";
 const SignUp = () => {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null); // Track error messages
+  const [error, setError] = useState(null); 
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -17,7 +17,7 @@ const SignUp = () => {
     });
   };
   useEffect(() => {
-    // If the user is logged in, redirect them to the home page
+    
     if (isAuthenticated) {
       navigate("/");
     }
@@ -25,7 +25,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Reset any previous errors
+    setError(null); 
     setLoading(true);
     
     try {
