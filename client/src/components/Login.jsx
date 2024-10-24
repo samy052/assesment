@@ -11,14 +11,14 @@ import {
 
 const Login = () => {
 
-    const authState = useSelector((state) => state.auth);  // Log the whole auth state
+    const authState = useSelector((state) => state.auth);  
     console.log('Auth State:', authState);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   useEffect(() => {
-    // If the user is logged in, redirect them to the home page
+   
     if (isAuthenticated) {
       navigate("/");
     }
